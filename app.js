@@ -1,36 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Get form by ID
     const form = document.getElementById("emailForm");
 
-    if (form) {
-        form.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission (page reload)
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
 
-            const formData = new FormData(form); // Collect form data
+        const formData = new FormData(form); // Collect form data
 
-            console.log("Form data:", formData); // For debugging
-
-            // Send form data using fetch
-            fetch("https://formsubmit.co/theimagineindiadev@gmail.com", {
-                method: "POST", // Use POST method
-                body: formData, // Send form data
-            })
-            .then((response) => {
-                if (response.ok) {
-                    console.log("Form submitted successfully");
-                    showPopup(); // Show the success popup
-                    form.reset(); // Reset the form
-                } else {
-                    console.error("Error in form submission: " + response.statusText);
-                    alert("Submission failed. Please try again.");
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
+        emailjs.sendForm('your_service_id', 'your_template_id', formData)
+            .then(function(response) {
+                console.log('Success:', response);
+                showPopup(); // Show the success popup
+                form.reset(); // Reset the form
+            }, function(error) {
+                console.error('Error:', error);
                 alert("There was an error. Please try again.");
             });
-        });
-    }
+    });
 
     // Show popup when form is successfully submitted
     function showPopup() {
@@ -38,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (popup) {
             popup.style.display = "block"; // Show the popup
             popup.removeAttribute("inert"); // Remove inert to make the popup interactive
-        } else {
-            console.error("Popup element not found");
         }
     }
 
