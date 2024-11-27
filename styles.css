@@ -203,16 +203,17 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .animated-title {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+    line-height: 1.2; /* Optional: adjust line height for readability */
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 1rem; /* Adjust subtitle size for consistency */
   }
 
   .email-form input,
   .email-form button {
-    width: 100%;
+    width: 100%; /* Full width for better usability on mobile */
     font-size: 0.9rem;
   }
 
