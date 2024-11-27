@@ -24,13 +24,15 @@
             <p class="subtitle">
                 Stay tuned for something amazing! Discover the world with us! Sign up with your email below to stay updated on exclusive travel deals, inspiring destinations, and our exciting launch announcements.
             </p>
-            <form class="email-form" action="https://formsubmit.co/theimagineindiadev@gmail.com/" method="POST" onsubmit="showPopup(event)">
+            <form id="emailForm" class="email-form" action="https://formsubmit.co/theimagineindiadev@gmail.com" method="POST">
                 <input type="email" name="email" placeholder="Enter your email address" required>
+                <!-- Hidden field to disable CAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
                 <button type="submit">Notify Me</button>
             </form>
         </div>
 
-        <div id="popup" class="popup" aria-hidden="true">
+        <div id="popup" class="popup">
             <h3>Thank You!</h3>
             <p>You have successfully subscribed. Stay tuned for updates!</p>
             <button onclick="closePopup()">Close</button>
@@ -40,5 +42,6 @@
             <img src="4.png" alt="Coming Soon Post" class="post-image">
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
