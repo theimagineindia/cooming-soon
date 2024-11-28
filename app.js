@@ -1,42 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Get form by ID
     const form = document.getElementById("emailForm");
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the form from submitting normally
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            console.log("Form submission started.");
 
-        const formData = new FormData(form); // Collect form data
+            const formData = new FormData(form);
+            console.log("Form data collected:", formData);
 
-        emailjs.sendForm('your_service_id', 'your_template_id', formData)
-            .then(function(response) {
-                console.log('Success:', response);
-                showPopup(); // Show the success popup
-                form.reset(); // Reset the form
-            }, function(error) {
-                console.error('Error:', error);
+            fetch("https://formsubmit.co/theimagineindiadev@gmail.com", {
+                method: "POST",
+                body: formData,
+            })
+            .then((response) => {
+                console.log("Response status:", response.status);
+                if (response.ok) {
+                    console.log("Form submitted successfully.");
+                    showPopup();
+                    form.reset();
+                } else {
+                    console.error("Error in form submission:", response.statusText);
+                    alert("Submission failed. Please try again.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error caught:", error);
                 alert("There was an error. Please try again.");
             });
-    });
-
-    // Show popup when form is successfully submitted
-    function showPopup() {
-        const popup = document.getElementById("popup");
-        if (popup) {
-            popup.style.display = "block"; // Show the popup
-            popup.removeAttribute("inert"); // Remove inert to make the popup interactive
-        }
-    }
-
-    // Close the popup
-    const closeBtn = document.querySelector("#popup button");
-    if (closeBtn) {
-        closeBtn.addEventListener("click", closePopup);
-    }
-
-    function closePopup() {
-        const popup = document.getElementById("popup");
-        if (popup) {
-            popup.style.display = "none"; // Hide the popup
-            popup.setAttribute("inert", ""); // Disable interaction again
-        }
+        });
     }
 });
