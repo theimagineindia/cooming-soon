@@ -3,39 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>TheImagineIndia – Coming Soon!</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function showPopup(event) {
-            event.preventDefault(); // Prevent form submission for testing popup
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
 </head>
 <body>
     <div class="banner">
         <div class="content">
             <img src="7.png" alt="Logo" class="logo">
-            <h1 class="animated-title">🎉 We’re Coming Soon! 🎉</h1>
-            <p class="subtitle">
-                Stay tuned for something amazing! Discover the world with us! Sign up with your email below to stay updated on exclusive travel deals, inspiring destinations, and our exciting launch announcements.
-            </p>
-            <form id="emailForm" class="email-form"  method="POST">
-                <input type="email" name="email" placeholder="Enter your email address" required>
-                <!-- Hidden field to disable CAPTCHA -->
-                <input type="hidden" name="_captcha" value="false">
-                <button type="submit">Notify Me</button>
-            </form>
-        </div>
-
-        <div id="popup" class="popup">
-            <h3>Thank You!</h3>
-            <p>You have successfully subscribed. Stay tuned for updates!</p>
-            <button onclick="closePopup()">Close</button>
+            <div class="coming-soon-container">
+                <h1 class="animated-title">🎉 TheImagineIndia 🎉<br><span>Coming Soon!</span></h1>
+                <p class="subtitle">
+                    An unforgettable journey awaits! We're building <strong>TheImagineIndia</strong>, your ultimate guide to exploring the beauty, culture, and hidden gems of India. 
+                    Get ready for a travel experience like no other, with curated itineraries, tips, and inspiration that will make your next adventure unforgettable.
+                    <br><br>
+                    Stay tuned for the grand launch and be among the first to embark on this incredible journey!
+                </p>
+            <div class="social-icons">
+                <a href="https://instagram.com/theimagineindia?igshid=YmM0MjE2YWMzOA==" class="social-icon" target="_blank" rel="noopener noreferrer">
+                    <img src="instagram.png" alt="Instagram" />
+                </a>
+                <a href=" https://chat.whatsapp.com/IhheayrlPRSJGyJaPNl9kE" class="social-icon" target="_blank" rel="noopener noreferrer">
+                    <img src="whatsapp.png" alt="WhatsApp" />
+                </a>
+                <a href="https://linktr.ee/theimagineindia" class="social-icon" target="_blank" rel="noopener noreferrer">
+                    <img src="chain.png" alt="LinkedIn" />
+                </a>
+                <!-- Add more social media icons here if needed -->
+            </div>
         </div>
 
         <div class="post-container">
